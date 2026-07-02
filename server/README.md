@@ -1,220 +1,144 @@
 <div align="center">
 
-# 🌱 KrishiRakshak
+# 🌱 KrishiRakshak Backend
 
-### AI-Powered Smart Pest Management Platform for Indian Farmers
+### Express.js REST API for AI-Powered Smart Pest Management
 
-![License](https://img.shields.io/badge/License-MIT-green)
 ![Node.js](https://img.shields.io/badge/Node.js-18+-339933?logo=node.js)
-![React](https://img.shields.io/badge/React-18-61DAFB?logo=react)
-![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?logo=mongodb)
 ![Express](https://img.shields.io/badge/Express.js-Backend-000000?logo=express)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?logo=typescript)
+![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?logo=mongodb)
 ![Groq](https://img.shields.io/badge/Groq-AI-orange)
+![JWT](https://img.shields.io/badge/JWT-Authentication-blue)
 
-AI-powered crop protection, pest detection, weather alerts, and farmer community platform.
+REST API powering the **KrishiRakshak** platform with AI services, authentication, weather integration, crop management, and community features.
 
 </div>
 
 ---
 
-# 📖 About
+# 📖 Overview
 
-KrishiRakshak is an AI-powered smart agriculture platform designed to help Indian farmers identify crop pests, receive intelligent farming recommendations, monitor weather conditions, and manage crop health.
+The KrishiRakshak backend provides secure REST APIs for smart agriculture applications.
 
-The platform combines Artificial Intelligence, Weather Analytics, Image Recognition, and Community Collaboration to reduce crop losses and improve farming decisions.
+It handles:
 
----
-
-# ✨ Features
-
-## 🤖 AI Farming Assistant
-
-- AI-powered chatbot
-- Crop-specific recommendations
-- Natural language conversations
-- Context-aware responses
-- Conversation history
+- User Authentication
+- Crop Management
+- AI Chat
+- AI Pest Identification
+- Weather Forecasting
+- AI Alerts
+- Spray Logs
+- Community Posts
+- MongoDB Database Operations
 
 ---
 
-## 🔍 AI Pest Identification
+# 🚀 Features
 
-- Upload crop images
-- AI-powered pest detection
-- Disease identification
-- Treatment recommendations
-- Preventive measures
+## Authentication
 
----
-
-## 🌦 Weather Dashboard
-
-- Real-time weather
-- 7-day weather forecast
-- Weather-based farming insights
-- Live environmental conditions
-
----
-
-## 🚨 Smart AI Alerts
-
-- AI-generated pest alerts
-- Weather alerts
-- Disease outbreak warnings
-- Personalized recommendations
-
----
-
-## 🌾 Crop Management
-
-- Add crops
-- Manage crops
-- Crop-wise recommendations
-- Active crop tracking
-
----
-
-## 🧪 Spray Log
-
-- Spray history
-- Pesticide tracking
-- Application records
-- Spray management
-
----
-
-## 👥 Farmer Community
-
-- Create posts
-- Ask questions
-- Share farming experiences
-- Comments
-- Like posts
-
----
-
-## 🌐 Multi-language Support
-
-- English
-- Hindi
-
----
-
-# 🛠 Tech Stack
-
-## Frontend
-
-- React 18
-- TypeScript
-- Vite
-- Tailwind CSS
-- React Router
-- React Query
-- Axios
-- Framer Motion
-- shadcn/ui
-
----
-
-## Backend
-
-- Node.js
-- Express.js
-- MongoDB Atlas
-- Mongoose
+- User Registration
+- User Login
 - JWT Authentication
-- Multer
-- Cloudinary
+- Protected Routes
 
 ---
 
 ## AI Services
 
+- Groq AI Chat Assistant
+- AI Pest Identification
+- AI Crop Recommendations
+- Weather-based Farming Advice
+- Smart Agricultural Alerts
+
+---
+
+## Crop Management
+
+- Add Crops
+- Update Crops
+- Delete Crops
+- User Crop Dashboard
+
+---
+
+## Weather
+
+- OpenWeatherMap Integration
+- Live Weather
+- Forecast
+- Pest Risk Prediction
+
+---
+
+## Community
+
+- Create Posts
+- Like Posts
+- Comments
+- Farmer Discussions
+
+---
+
+## Spray Logs
+
+- Create Spray Records
+- View History
+- Update Records
+- Delete Records
+
+---
+
+# 🛠 Tech Stack
+
+- Node.js
+- Express.js
+- MongoDB Atlas
+- Mongoose
+- JWT
 - Groq AI
-- Llama 3.1 8B Instant
-- Llama 4 Scout Vision
-
----
-
-## APIs
-
 - OpenWeatherMap API
-- Cloudinary API
-- Groq API
+- Cloudinary
+- Multer
 
 ---
 
-# 📂 Project Structure
+# 📂 Folder Structure
 
 ```text
-AgriGuardiann
+server
 │
-├── public
+├── controllers
+├── middleware
+├── models
+├── routes
+├── scripts
+├── services
+├── uploads
+├── utils
 │
-├── src
-│   ├── components
-│   ├── contexts
-│   ├── hooks
-│   ├── lib
-│   ├── pages
-│   ├── services
-│   └── types
-│
-├── server
-│   ├── controllers
-│   ├── middleware
-│   ├── models
-│   ├── routes
-│   ├── scripts
-│   ├── services
-│   ├── uploads
-│   └── utils
-│
+├── index.js
 ├── package.json
-├── vite.config.ts
 └── README.md
 ```
 
 ---
 
-# 🚀 Getting Started
+# 📦 Installation
 
-## Prerequisites
-
-- Node.js 18+
-- MongoDB Atlas
-- Groq API Key
-- OpenWeatherMap API Key
-- Cloudinary Account
-
----
-
-## Installation
-
-### Clone Repository
+Clone repository
 
 ```bash
-git clone https://github.com/AnveshaSharma17/AgriGuardiann.git
+git clone https://github.com/your-username/KrishiRakshak.git
 
-cd AgriGuardiann
-```
-
----
-
-### Install Frontend
-
-```bash
-npm install
-```
-
----
-
-### Install Backend
-
-```bash
 cd server
+```
 
+Install dependencies
+
+```bash
 npm install
 ```
 
@@ -222,15 +146,7 @@ npm install
 
 # ⚙ Environment Variables
 
-## Frontend (.env)
-
-```env
-VITE_API_URL=http://localhost:5000
-```
-
----
-
-## Backend (server/.env)
+Create a `.env` file inside the `server` folder.
 
 ```env
 PORT=5000
@@ -258,38 +174,16 @@ CLOUDINARY_API_SECRET=your_cloudinary_api_secret
 
 ---
 
-## Seed Database
-
-```bash
-cd server
-
-node scripts/seedPestDatabase.js
-```
-
----
-
-## Run Backend
-
-```bash
-cd server
-
-npm run dev
-```
-
----
-
-## Run Frontend
+# ▶ Run Development Server
 
 ```bash
 npm run dev
 ```
 
----
-
-Open
+Server
 
 ```
-http://localhost:5173
+http://localhost:5000
 ```
 
 ---
@@ -300,9 +194,9 @@ http://localhost:5173
 
 | Method | Endpoint |
 |---------|----------|
-| POST | /api/auth/register |
-| POST | /api/auth/login |
-| GET | /api/auth/me |
+| POST | `/api/auth/register` |
+| POST | `/api/auth/login` |
+| GET | `/api/auth/me` |
 
 ---
 
@@ -310,8 +204,8 @@ http://localhost:5173
 
 | Method | Endpoint |
 |---------|----------|
-| POST | /api/ai/chat |
-| POST | /api/ai/identify-image |
+| POST | `/api/ai/chat` |
+| POST | `/api/ai/identify-image` |
 
 ---
 
@@ -319,9 +213,9 @@ http://localhost:5173
 
 | Method | Endpoint |
 |---------|----------|
-| GET | /api/alerts |
-| GET | /api/alerts/weather-forecast |
-| GET | /api/alerts/ai-alerts |
+| GET | `/api/alerts` |
+| GET | `/api/alerts/weather-forecast` |
+| GET | `/api/alerts/ai-alerts` |
 
 ---
 
@@ -329,9 +223,9 @@ http://localhost:5173
 
 | Method | Endpoint |
 |---------|----------|
-| GET | /api/crops |
-| GET | /api/user/crops |
-| POST | /api/user/crops |
+| GET | `/api/crops` |
+| GET | `/api/user/crops` |
+| POST | `/api/user/crops` |
 
 ---
 
@@ -339,9 +233,8 @@ http://localhost:5173
 
 | Method | Endpoint |
 |---------|----------|
-| GET | /api/community |
-| POST | /api/community |
-| POST | /api/community/:id/comment |
+| GET | `/api/community` |
+| POST | `/api/community` |
 
 ---
 
@@ -349,80 +242,56 @@ http://localhost:5173
 
 | Method | Endpoint |
 |---------|----------|
-| GET | /api/spray-logs |
-| POST | /api/spray-logs |
+| GET | `/api/spray-logs` |
+| POST | `/api/spray-logs` |
 
 ---
 
 # 🔐 Authentication
 
-Protected endpoints require JWT authentication.
+Protected APIs require a JWT token.
 
-```
+```http
 Authorization: Bearer <token>
 ```
 
 ---
 
-# 📸 Application Modules
+# 🧠 AI Models
 
-- Dashboard
-- AI Chat Assistant
-- AI Pest Identification
-- Weather Dashboard
-- Smart AI Alerts
-- Crop Management
-- Spray Log
-- Community Forum
-- User Profile
+- **Chat:** Llama 3.1 8B Instant (Groq)
+- **Vision:** Llama 4 Scout
+- **Weather Advisory:** Groq AI
+- **Pest Recommendations:** Groq AI
 
 ---
 
-# 🚀 Future Enhancements
+# 🚀 Deployment
 
-- Voice Assistant
-- Offline Mode
-- SMS Notifications
-- Push Notifications
-- IoT Sensor Integration
-- Drone Monitoring
-- Regional Language Expansion
+The backend can be deployed on:
 
----
+- Render
+- Railway
+- Fly.io
 
-# 🤝 Contributing
+Start command
 
-1. Fork the repository.
-2. Create a new feature branch.
-3. Commit your changes.
-4. Push the branch.
-5. Open a Pull Request.
+```bash
+npm start
+```
 
 ---
 
 # 📄 License
 
-This project is licensed under the MIT License.
-
----
-
-# 🙏 Acknowledgements
-
-- Groq AI
-- OpenWeatherMap
-- MongoDB Atlas
-- React
-- Express.js
-- Tailwind CSS
-- Cloudinary
-- Indian Farming Community
+MIT License.
 
 ---
 
 <div align="center">
 
-## 🌱 Made with ❤️ for Indian Farmers
+### 🌱 KrishiRakshak Backend
 
-### Protecting Crops • Empowering Farmers • Smart Agriculture
+Built with ❤️ using **Node.js**, **Express.js**, **MongoDB Atlas**, and **Groq AI**.
 
 </div>

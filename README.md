@@ -2,314 +2,789 @@
 
 # 🌱 KrishiRakshak
 
-### AI-Powered Smart Pest Management for Indian Farmers
+### AI-Powered Smart Pest Management Platform for Indian Farmers
 
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Node.js](https://img.shields.io/badge/Node.js-18+-339933?logo=node.js)](https://nodejs.org/)
-[![React](https://img.shields.io/badge/React-18.3-61DAFB?logo=react)](https://reactjs.org/)
-[![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?logo=mongodb)](https://www.mongodb.com/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?logo=typescript)](https://www.typescriptlang.org/)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Node.js](https://img.shields.io/badge/Node.js-18+-339933?logo=node.js)
+![React](https://img.shields.io/badge/React-18-61DAFB?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?logo=typescript)
+![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?logo=mongodb)
+![Express](https://img.shields.io/badge/Express.js-Backend-000000?logo=express)
+![Groq](https://img.shields.io/badge/Groq-AI-orange)
+![Vite](https://img.shields.io/badge/Vite-Frontend-646CFF?logo=vite)
 
-*Empowering farmers with AI-driven pest identification, weather-based alerts, and community support*
+### Intelligent Crop Protection Through Artificial Intelligence
 
-[Live Demo](https://krishirakshak.vercel.app) • [Report Bug](https://github.com/AnveshaSharma17/AgriGuardiann/issues) • [Request Feature](https://github.com/AnveshaSharma17/AgriGuardiann/issues)
+AI-powered pest identification, weather intelligence, smart farming recommendations, crop management, and farmer community platform built specifically for Indian agriculture.
 
 </div>
 
 ---
 
-## 📋 Table of Contents
+# 📖 About
 
-- [About the Project](#-about-the-project)
-- [Features](#-features)
-- [Tech Stack](#-tech-stack)
-- [Getting Started](#-getting-started)
-- [Environment Variables](#-environment-variables)
-- [API Documentation](#-api-documentation)
-- [Project Structure](#-project-structure)
-- [Contributing](#-contributing)
-- [Team](#-team)
-- [License](#-license)
+KrishiRakshak is a modern full-stack agriculture platform that helps farmers identify pests, monitor crop health, receive AI-powered farming recommendations, and stay informed through weather-driven alerts.
+
+The application combines Artificial Intelligence, Computer Vision, Weather Analytics, and Community Collaboration to provide a complete smart farming experience.
+
+The platform aims to reduce crop losses by providing instant pest diagnosis, personalized recommendations, and proactive disease prevention.
 
 ---
 
-## 🌾 About the Project
+# ✨ Features
 
-**KrishiRakshak** (कृषि रक्षक - Crop Protector) is an intelligent pest management system designed specifically for Indian farmers. It combines AI-powered pest identification, real-time weather-based alerts, and a supportive community platform to help farmers protect their crops effectively.
+## 🤖 AI Farming Assistant
 
-### 🎯 Problem Statement
-
-Indian farmers lose approximately **15-25% of their crop yield** annually due to pest attacks. Traditional pest identification methods are:
-- Time-consuming and often inaccurate
-- Dependent on expensive agricultural experts
-- Unable to provide preventive measures
-
-### 💡 Our Solution
-
-KrishiRakshak provides:
-- **Instant AI-powered pest identification** from crop images
-- **Weather-based pest outbreak predictions**
-- **Comprehensive pest database** with 50+ pests across 10 major crops
-- **Multilingual support** (English & Hindi)
-- **Community-driven knowledge sharing**
+- Groq-powered agricultural chatbot
+- Context-aware farming conversations
+- Crop-specific recommendations
+- Personalized farming guidance
+- Conversation history
+- Fast streaming responses
 
 ---
 
-## ✨ Features
+## 🔍 AI Pest Identification
 
-### 🔍 AI Pest Identification
-- Upload crop images for instant pest detection
-- Get detailed information about identified pests
-- Receive AI-generated treatment recommendations
-
-### 🌤️ Smart Weather Alerts
-- Real-time weather data integration
-- Pest outbreak risk predictions based on weather conditions
-- Location-based personalized alerts
-
-### 📚 Comprehensive Pest Database
-- 50+ pests covering 10 major Indian crops
-- Detailed pest lifecycle, symptoms, and damage information
-- Available in English and Hindi
-
-### 💬 AI Chatbot Assistant
-- 24/7 farming advice powered by Google Gemini AI
-- Context-aware responses based on user's crops and location
-- Conversation history for reference
-
-### 👥 Farmer Community
-- Share experiences and ask questions
-- Upvote helpful answers
-- Connect with farmers across India
-
-### 📊 Spray Log Tracker
-- Track pesticide usage
-- Maintain application history
-- Get reminders for re-application
-
-### 🌐 Bilingual Support
-- Full English and Hindi translations
-- Easy language switching
-- Culturally appropriate content
+- Upload crop images
+- AI-powered pest detection
+- Disease identification
+- Treatment recommendations
+- Preventive farming measures
+- Confidence-based analysis
 
 ---
 
-## 🛠️ Tech Stack
+## 🌦 Smart Weather Dashboard
 
-### Frontend
-| Technology | Purpose |
-|------------|---------|
-| React 18 | UI Framework |
-| TypeScript | Type Safety |
-| Tailwind CSS | Styling |
-| Framer Motion | Animations |
-| shadcn/ui | Component Library |
-| React Router v6 | Navigation |
-| i18next | Internationalization |
-| React Query | Data Fetching |
-
-### Backend
-| Technology | Purpose |
-|------------|---------|
-| Node.js | Runtime |
-| Express.js | API Framework |
-| MongoDB Atlas | Database |
-| JWT | Authentication |
-| Google Gemini AI | AI Services |
-| OpenWeatherMap | Weather Data |
-| Cloudinary | Image Storage |
+- Real-time weather conditions
+- 7-Day weather forecast
+- Temperature monitoring
+- Humidity tracking
+- Wind speed analysis
+- Weather-based crop insights
 
 ---
 
-## 🚀 Getting Started
+## 🚨 AI Smart Alerts
 
-### Prerequisites
-
-- Node.js 18+ installed
-- MongoDB Atlas account
-- Google AI Studio API key
-- OpenWeatherMap API key
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/AnveshaSharma17/AgriGuardiann.git
-   cd AgriGuardiann
-   ```
-
-2. **Install frontend dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Install backend dependencies**
-   ```bash
-   cd server
-   npm install
-   ```
-
-4. **Set up environment variables** (see [Environment Variables](#-environment-variables))
-
-5. **Seed the database**
-   ```bash
-   cd server
-   node scripts/seedPestDatabase.js
-   ```
-
-6. **Start the development servers**
-
-   Terminal 1 (Backend):
-   ```bash
-   cd server
-   npm run dev
-   ```
-
-   Terminal 2 (Frontend):
-   ```bash
-   npm run dev
-   ```
-
-7. **Open** http://localhost:8080 in your browser
+- Weather alerts
+- Pest outbreak prediction
+- Disease risk alerts
+- Crop-specific recommendations
+- AI-generated advisories
+- Personalized notifications
 
 ---
 
-## 🔐 Environment Variables
+## 🌾 Crop Management
 
-### Frontend (`.env`)
+- Add crops
+- Manage active crops
+- Crop monitoring
+- Personalized recommendations
+- Crop dashboard
+
+---
+
+## 🧪 Spray Log
+
+- Maintain spray history
+- Track pesticide applications
+- View previous treatments
+- Organize application records
+
+---
+
+## 👥 Farmer Community
+
+- Share farming experiences
+- Ask agricultural questions
+- Community discussions
+- Comments
+- Like posts
+- Knowledge sharing
+
+---
+
+## 🔐 Authentication
+
+- JWT Authentication
+- Secure Login
+- User Registration
+- Protected Routes
+- Profile Management
+
+---
+
+## 🌐 Multi-language Support
+
+- English
+- Hindi
+
+---
+
+# 🚀 Key Highlights
+
+- AI Chat Assistant
+- AI Image Analysis
+- Smart Weather Alerts
+- Pest Identification
+- Community Platform
+- Crop Dashboard
+- Spray Log Management
+- JWT Authentication
+- MongoDB Atlas Integration
+- Cloud Image Storage
+- Responsive UI
+- Modern REST API
+
+---
+
+# 🛠 Tech Stack
+
+## Frontend
+
+- React 18
+- TypeScript
+- Vite
+- Tailwind CSS
+- React Router
+- React Query
+- Axios
+- Framer Motion
+- shadcn/ui
+- Lucide Icons
+
+---
+
+## Backend
+
+- Node.js
+- Express.js
+- MongoDB Atlas
+- Mongoose
+- JWT Authentication
+- Multer
+- Cloudinary
+
+---
+
+## AI Services
+
+- Groq AI
+- Llama 3.1 8B Instant
+- Llama 4 Scout Vision
+
+---
+
+## APIs
+
+- OpenWeatherMap API
+- Groq API
+- Cloudinary API
+
+---
+
+# 🧠 AI Features
+
+### AI Chat Assistant
+
+- Crop recommendations
+- Farming advice
+- Pest solutions
+- Disease prevention
+- Fertilizer guidance
+
+### AI Image Detection
+
+- Crop image analysis
+- Pest identification
+- Disease detection
+- Preventive suggestions
+
+### AI Weather Analysis
+
+- Weather-based alerts
+- Pest prediction
+- Disease forecasting
+- Farming recommendations
+
+---
+
+# 🎯 Project Objectives
+
+- Reduce crop losses
+- Improve pest identification accuracy
+- Provide instant agricultural assistance
+- Support sustainable farming
+- Enable data-driven farming decisions
+- Build a collaborative farmer community
+
+---
+
+# 🚀 Getting Started
+
+## Prerequisites
+
+Before running the project, ensure you have the following installed:
+
+- Node.js 18+
+- npm
+- MongoDB Atlas Account
+- Groq API Key
+- OpenWeatherMap API Key
+- Cloudinary Account (Optional)
+
+---
+
+# 📥 Installation
+
+## 1. Clone the Repository
+
+```bash
+git clone https://github.com/AnveshaSharma17/AgriGuardiann.git
+
+cd AgriGuardiann
+```
+
+---
+
+## 2. Install Frontend Dependencies
+
+```bash
+npm install
+```
+
+---
+
+## 3. Install Backend Dependencies
+
+```bash
+cd server
+
+npm install
+```
+
+---
+
+# ⚙ Environment Variables
+
+## Frontend (.env)
+
 ```env
 VITE_API_URL=http://localhost:5000
 ```
 
-### Backend (`server/.env`)
+---
+
+## Backend (server/.env)
+
 ```env
-# Server
 PORT=5000
+
 NODE_ENV=development
-FRONTEND_URL=http://localhost:8080
 
-# Database
-MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/krishirakshak
+CLIENT_URL=http://localhost:5173
 
-# Authentication
-JWT_SECRET=your-super-secret-jwt-key
-JWT_EXPIRES_IN=7d
+MONGODB_URI=your_mongodb_connection_string
 
-# AI Services
-GEMINI_API_KEY=your-gemini-api-key
+JWT_SECRET=your_jwt_secret
 
-# Weather
-OPENWEATHERMAP_API_KEY=your-openweathermap-api-key
+JWT_EXPIRE=30d
 
-# Image Upload (Optional)
-CLOUDINARY_CLOUD_NAME=your-cloud-name
-CLOUDINARY_API_KEY=your-api-key
-CLOUDINARY_API_SECRET=your-api-secret
+GROQ_API_KEY=your_groq_api_key
+
+OPENWEATHERMAP_API_KEY=your_openweathermap_api_key
+
+CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+
+CLOUDINARY_API_KEY=your_cloudinary_api_key
+
+CLOUDINARY_API_SECRET=your_cloudinary_api_secret
 ```
 
 ---
 
-## 📖 API Documentation
+# 🗄 Database Setup
 
-### Authentication
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/api/auth/register` | POST | Register new user |
-| `/api/auth/login` | POST | Login user |
-| `/api/auth/me` | GET | Get current user |
+The project uses **MongoDB Atlas**.
 
-### Pests
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/api/pests` | GET | Get all pests |
-| `/api/pests/:id` | GET | Get pest by ID |
+1. Create a MongoDB Atlas Cluster.
 
-### Crops
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/api/crops` | GET | Get all crops |
-| `/api/user/crops` | GET | Get user's crops |
-| `/api/user/crops` | POST | Add crop to user |
+2. Create a Database User.
 
-### AI Services
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/api/ai/chat` | POST | Chat with AI assistant |
-| `/api/ai/identify-image` | POST | Identify pest from image |
+3. Add your IP Address under Network Access.
 
-### Alerts
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/api/alerts/ai-alerts` | GET | Get AI-generated alerts |
+4. Copy the MongoDB connection string.
+
+Example:
+
+```env
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/KrishiRakshak
+```
 
 ---
 
-## 📁 Project Structure
+# 🤖 Groq AI Setup
+
+1. Visit
 
 ```
-AgriGuardiann/
-├── public/                 # Static assets
-│   └── favicon.svg
-├── src/
-│   ├── components/         # Reusable UI components
-│   │   └── ui/            # shadcn/ui components
-│   ├── contexts/          # React contexts
-│   ├── hooks/             # Custom hooks
-│   ├── lib/               # Utilities and configs
-│   │   ├── api.ts         # API client
-│   │   └── i18n.ts        # Translations
-│   └── pages/             # Page components
-│       ├── Dashboard.tsx
-│       ├── Identify.tsx
-│       ├── Alerts.tsx
-│       ├── Community.tsx
-│       └── ...
-├── server/
-│   ├── controllers/       # Route handlers
-│   ├── models/           # MongoDB models
-│   ├── routes/           # API routes
-│   ├── middleware/       # Express middleware
-│   ├── services/         # Business logic
-│   └── scripts/          # Utility scripts
-├── index.html
+https://console.groq.com/
+```
+
+2. Generate an API Key.
+
+3. Add it to
+
+```env
+GROQ_API_KEY=your_api_key
+```
+
+---
+
+# 🌦 Weather API Setup
+
+1. Create an account at OpenWeatherMap.
+
+2. Generate an API Key.
+
+3. Add
+
+```env
+OPENWEATHERMAP_API_KEY=your_api_key
+```
+
+---
+
+# ☁ Cloudinary Setup
+
+Create a Cloudinary account and add:
+
+```env
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+
+CLOUDINARY_API_KEY=your_api_key
+
+CLOUDINARY_API_SECRET=your_api_secret
+```
+
+Cloudinary is used for image uploads before AI analysis.
+
+---
+
+# 🌱 Seed Database
+
+Populate the pest database before starting the application.
+
+```bash
+cd server
+
+node scripts/seedPestDatabase.js
+```
+
+---
+
+# ▶ Running the Backend
+
+```bash
+cd server
+
+npm run dev
+```
+
+Server runs on
+
+```
+http://localhost:5000
+```
+
+---
+
+# ▶ Running the Frontend
+
+```bash
+npm run dev
+```
+
+Frontend runs on
+
+```
+http://localhost:5173
+```
+
+---
+
+# 🌍 Application Workflow
+
+```
+Farmer
+   │
+   ▼
+Frontend (React + Vite)
+   │
+REST APIs
+   │
+Express.js Backend
+   │
+ ├───────────────┐
+ │               │
+ ▼               ▼
+MongoDB       Groq AI
+ │               │
+ ▼               ▼
+Crop Data    AI Responses
+ │               │
+ └──────┬────────┘
+        ▼
+ Weather API
+        │
+        ▼
+ Personalized Alerts
+```
+
+---
+
+# 📁 Project Structure
+
+```text
+AgriGuardiann
+│
+├── public
+│
+├── src
+│   ├── assets
+│   ├── components
+│   ├── contexts
+│   ├── hooks
+│   ├── lib
+│   ├── pages
+│   ├── services
+│   ├── types
+│   └── utils
+│
+├── server
+│   ├── controllers
+│   ├── middleware
+│   ├── models
+│   ├── routes
+│   ├── scripts
+│   ├── services
+│   ├── uploads
+│   └── utils
+│
 ├── package.json
+├── vite.config.ts
 └── README.md
 ```
 
 ---
 
-## 🤝 Contributing
+# 🔒 Authentication
 
-Contributions are welcome! Please follow these steps:
+The application uses **JWT Authentication**.
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+Every protected API requires
 
----
+```http
+Authorization: Bearer <JWT_TOKEN>
+```
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+JWT is generated during login and must be sent with authenticated requests.
 
 ---
 
-## 🙏 Acknowledgements
+# 📡 API Endpoints
 
-- [Google Gemini AI](https://ai.google.dev/) for AI capabilities
-- [OpenWeatherMap](https://openweathermap.org/) for weather data
-- [shadcn/ui](https://ui.shadcn.com/) for beautiful components
-- [Tailwind CSS](https://tailwindcss.com/) for styling
-- Indian farming community for inspiration and feedback
+## Authentication
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| POST | `/api/auth/register` | Register a new user |
+| POST | `/api/auth/login` | Login user |
+| GET | `/api/auth/me` | Get current user |
+
+---
+
+## AI Services
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| POST | `/api/ai/chat` | Chat with AI Assistant |
+| POST | `/api/ai/identify-image` | AI Pest Identification |
+
+---
+
+## Crop Management
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | `/api/crops` | Get all crops |
+| GET | `/api/user/crops` | Get user crops |
+| POST | `/api/user/crops` | Add crop |
+| PATCH | `/api/user/crops/:id` | Update crop |
+| DELETE | `/api/user/crops/:id` | Delete crop |
+
+---
+
+## Weather & Alerts
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | `/api/alerts` | Get alerts |
+| GET | `/api/alerts/weather-forecast` | Weather Forecast |
+| GET | `/api/alerts/ai-alerts` | AI Generated Alerts |
+
+---
+
+## Community
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | `/api/community` | Get Posts |
+| POST | `/api/community` | Create Post |
+| POST | `/api/community/:id/comment` | Comment on Post |
+| PATCH | `/api/community/:id/like` | Like a Post |
+
+---
+
+## Spray Logs
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | `/api/spray-logs` | View Spray Logs |
+| POST | `/api/spray-logs` | Add Spray Log |
+| PATCH | `/api/spray-logs/:id` | Update Spray Log |
+| DELETE | `/api/spray-logs/:id` | Delete Spray Log |
+
+---
+
+# 📸 Screenshots
+
+You can add screenshots here after deployment.
+
+## Dashboard
+
+```
+screenshots/dashboard.png
+```
+
+---
+
+## AI Chat Assistant
+
+```
+screenshots/chat.png
+```
+
+---
+
+## AI Pest Identification
+
+```
+screenshots/pest-identification.png
+```
+
+---
+
+## Weather Dashboard
+
+```
+screenshots/weather.png
+```
+
+---
+
+## Community
+
+```
+screenshots/community.png
+```
+
+---
+
+## Spray Log
+
+```
+screenshots/spraylog.png
+```
+
+---
+
+# 🚀 Deployment
+
+## Frontend
+
+Deploy the React application using:
+
+- Vercel
+- Netlify
+
+Build command
+
+```bash
+npm run build
+```
+
+Output directory
+
+```
+dist
+```
+
+---
+
+## Backend
+
+Deploy the Express server using:
+
+- Render
+- Railway
+- Fly.io
+
+Build command
+
+```bash
+npm install
+```
+
+Start command
+
+```bash
+npm start
+```
+
+---
+
+## Required Environment Variables
+
+```env
+PORT=5000
+
+NODE_ENV=production
+
+CLIENT_URL=https://your-frontend-domain.vercel.app
+
+MONGODB_URI=your_mongodb_connection_string
+
+JWT_SECRET=your_jwt_secret
+
+JWT_EXPIRE=30d
+
+GROQ_API_KEY=your_groq_api_key
+
+OPENWEATHERMAP_API_KEY=your_openweathermap_api_key
+
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+
+CLOUDINARY_API_KEY=your_api_key
+
+CLOUDINARY_API_SECRET=your_api_secret
+```
+
+---
+
+# 📈 Future Enhancements
+
+- Voice-enabled AI Assistant
+- Push Notifications
+- SMS Weather Alerts
+- Offline Support
+- Multi-language Expansion
+- IoT Sensor Integration
+- Drone Crop Monitoring
+- Soil Health Analysis
+- Fertilizer Recommendation Engine
+- Marketplace for Farmers
+- Government Scheme Integration
+
+---
+
+# 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork the repository.
+2. Create a new branch.
+
+```bash
+git checkout -b feature/feature-name
+```
+
+3. Commit your changes.
+
+```bash
+git commit -m "feat: add new feature"
+```
+
+4. Push the branch.
+
+```bash
+git push origin feature/feature-name
+```
+
+5. Open a Pull Request.
+
+---
+
+# 🧪 Testing
+
+Run the frontend
+
+```bash
+npm run dev
+```
+
+Run the backend
+
+```bash
+cd server
+
+npm run dev
+```
+
+Verify
+
+- User Authentication
+- AI Chat
+- Pest Identification
+- Weather Dashboard
+- AI Alerts
+- Community
+- Spray Logs
+
+---
+
+# 📄 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+# 🙏 Acknowledgements
+
+- Groq AI
+- MongoDB Atlas
+- OpenWeatherMap
+- Cloudinary
+- React
+- Express.js
+- Tailwind CSS
+- Vite
+- shadcn/ui
 
 ---
 
 <div align="center">
 
-**Made with ❤️ for Indian Farmers**
+# 🌱 KrishiRakshak
 
-🌱 *Protecting crops, empowering farmers* 🌾
+### AI-Powered Smart Pest Management Platform
+
+**Protecting Crops • Empowering Farmers • Smart Agriculture**
+
+Built with ❤️ using **React, Node.js, Express, MongoDB Atlas, and Groq AI**
 
 </div>
+
