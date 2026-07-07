@@ -1,38 +1,20 @@
 import { Link } from "react-router-dom";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import {
     ArrowRight,
-    Leaf,
     MessageCircle,
     Phone,
     Mail,
-    MapPin,
     Clock,
-    Send,
+    Camera,
+    Bell,
+    Users,
     ChevronRight,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useState } from "react";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { useTranslation } from "react-i18next";
 
 // Animation Variants
-const fadeInUp = {
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-};
-
-const fadeInLeft = {
-    hidden: { opacity: 0, x: -40 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.6 } }
-};
-
-const fadeInRight = {
-    hidden: { opacity: 0, x: 40 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.6 } }
-};
-
 const scaleIn = {
     hidden: { opacity: 0, scale: 0.9 },
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } }
@@ -51,46 +33,46 @@ const staggerContainer = {
 
 const Contact = () => {
     const { t } = useTranslation();
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: "",
-    });
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        // Handle form submission
-        console.log("Form submitted:", formData);
-        alert(t('contact.form.successMessage'));
-    };
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value,
-        });
-    };
+    const aboutPoints = [
+        {
+            icon: Camera,
+            title: t('contact.about.point1.title'),
+            description: t('contact.about.point1.description'),
+            color: "bg-[#B9F261]",
+        },
+        {
+            icon: MessageCircle,
+            title: t('contact.about.point2.title'),
+            description: t('contact.about.point2.description'),
+            color: "bg-[#FFD24A]",
+        },
+        {
+            icon: Bell,
+            title: t('contact.about.point3.title'),
+            description: t('contact.about.point3.description'),
+            color: "bg-[#B9F261]",
+        },
+        {
+            icon: Users,
+            title: t('contact.about.point4.title'),
+            description: t('contact.about.point4.description'),
+            color: "bg-[#FFD24A]",
+        },
+    ];
 
     const contactInfo = [
         {
             icon: Phone,
             title: t('contact.info.callUs'),
-            details: ["+91 98765 43210", "+91 12345 67890"],
+            details: ["+91 88406 44818"],
             color: "bg-[#B9F261]",
         },
         {
             icon: Mail,
             title: t('contact.info.emailUs'),
-            details: ["support@krishirakshak.com", "info@krishirakshak.com"],
+            details: ["vaishnavishukla9578b@gmail.com"],
             color: "bg-[#FFD24A]",
-        },
-        {
-            icon: MapPin,
-            title: t('contact.info.visitUs'),
-            details: ["123 AgriTech Park, Sector 42", "Gurugram, Haryana 122001"],
-            color: "bg-[#B9F261]",
         },
         {
             icon: Clock,
@@ -225,7 +207,7 @@ const Contact = () => {
             <section className="py-16 bg-[#FAF4EA]">
                 <div className="container mx-auto px-6">
                     <motion.div
-                        className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 -mt-32 relative z-20"
+                        className="grid md:grid-cols-3 gap-6 -mt-32 relative z-20"
                         variants={staggerContainer}
                         initial="hidden"
                         whileInView="visible"
@@ -259,99 +241,49 @@ const Contact = () => {
             <section className="py-24 bg-[#FAF4EA]">
                 <div className="container mx-auto px-6">
                     <div className="grid lg:grid-cols-2 gap-12">
-                        {/* Contact Form */}
+                        {/* About the Application */}
                         <motion.div
                             initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             className="bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-gray-100"
                         >
-                            <h2 className="font-display text-3xl font-bold text-[#0B0B0B] mb-2">{t('contact.form.title')}</h2>
-                            <p className="text-gray-600 mb-8">{t('contact.form.description')}</p>
+                            <h2 className="font-display text-3xl font-bold text-[#0B0B0B] mb-2">{t('contact.about.title')}</h2>
+                            <p className="text-gray-600 mb-8">{t('contact.about.description')}</p>
 
-                            <form onSubmit={handleSubmit} className="space-y-6">
-                                <div className="grid md:grid-cols-2 gap-6">
-                                    <div>
-                                        <label className="block text-sm font-medium text-[#0B0B0B] mb-2">{t('contact.form.yourName')}</label>
-                                        <input
-                                            type="text"
-                                            name="name"
-                                            value={formData.name}
-                                            onChange={handleChange}
-                                            required
-                                            className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-[#B9F261] focus:outline-none focus:ring-2 focus:ring-[#B9F261]/20 transition-all"
-                                            placeholder={t('contact.form.namePlaceholder')}
-                                        />
-                                    </div>
-                                    <div>
-                                        <label className="block text-sm font-medium text-[#0B0B0B] mb-2">{t('contact.form.emailAddress')}</label>
-                                        <input
-                                            type="email"
-                                            name="email"
-                                            value={formData.email}
-                                            onChange={handleChange}
-                                            required
-                                            className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-[#B9F261] focus:outline-none focus:ring-2 focus:ring-[#B9F261]/20 transition-all"
-                                            placeholder={t('contact.form.emailPlaceholder')}
-                                        />
-                                    </div>
-                                </div>
+                            <div className="space-y-6">
+                                {aboutPoints.map((point, index) => (
+                                    <motion.div
+                                        key={index}
+                                        initial={{ opacity: 0, y: 15 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: index * 0.1 }}
+                                        className="flex items-start gap-4"
+                                    >
+                                        <div className={`w-12 h-12 ${point.color} rounded-xl flex items-center justify-center flex-shrink-0`}>
+                                            <point.icon className="w-6 h-6 text-[#0B0B0B]" />
+                                        </div>
+                                        <div>
+                                            <h3 className="font-display font-bold text-[#0B0B0B] mb-1">{point.title}</h3>
+                                            <p className="text-gray-600 text-sm leading-relaxed">{point.description}</p>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </div>
 
-                                <div className="grid md:grid-cols-2 gap-6">
-                                    <div>
-                                        <label className="block text-sm font-medium text-[#0B0B0B] mb-2">{t('contact.form.phoneNumber')}</label>
-                                        <input
-                                            type="tel"
-                                            name="phone"
-                                            value={formData.phone}
-                                            onChange={handleChange}
-                                            className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-[#B9F261] focus:outline-none focus:ring-2 focus:ring-[#B9F261]/20 transition-all"
-                                            placeholder={t('contact.form.phonePlaceholder')}
-                                        />
-                                    </div>
-                                    <div>
-                                        <label className="block text-sm font-medium text-[#0B0B0B] mb-2">{t('contact.form.subject')}</label>
-                                        <select
-                                            name="subject"
-                                            value={formData.subject}
-                                            onChange={handleChange}
-                                            required
-                                            className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-[#B9F261] focus:outline-none focus:ring-2 focus:ring-[#B9F261]/20 transition-all"
-                                        >
-                                            <option value="">{t('contact.form.selectSubject')}</option>
-                                            <option value="general">{t('contact.form.generalInquiry')}</option>
-                                            <option value="support">{t('contact.form.technicalSupport')}</option>
-                                            <option value="partnership">{t('contact.form.partnership')}</option>
-                                            <option value="demo">{t('contact.form.requestDemo')}</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <label className="block text-sm font-medium text-[#0B0B0B] mb-2">{t('contact.form.yourMessage')}</label>
-                                    <textarea
-                                        name="message"
-                                        value={formData.message}
-                                        onChange={handleChange}
-                                        required
-                                        rows={5}
-                                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-[#B9F261] focus:outline-none focus:ring-2 focus:ring-[#B9F261]/20 transition-all resize-none"
-                                        placeholder={t('contact.form.messagePlaceholder')}
-                                    />
-                                </div>
-
+                            <Link to="/register">
                                 <motion.button
-                                    type="submit"
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
-                                    className="w-full flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-[#B9F261] text-[#0B0B0B] font-semibold text-base hover:bg-[#a8e050] transition-all shadow-lg"
+                                    className="w-full mt-8 flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-[#B9F261] text-[#0B0B0B] font-semibold text-base hover:bg-[#a8e050] transition-all shadow-lg"
                                 >
-                                    {t('contact.form.sendMessage')}
+                                    {t('contact.cta.button')}
                                     <div className="w-7 h-7 rounded-full bg-[#0B0B0B] flex items-center justify-center">
-                                        <Send className="w-4 h-4 text-white" />
+                                        <ArrowRight className="w-4 h-4 text-white" />
                                     </div>
                                 </motion.button>
-                            </form>
+                            </Link>
                         </motion.div>
 
                         {/* Map Section */}
@@ -388,7 +320,7 @@ const Contact = () => {
                                     <p className="text-white/70 mb-6">{t('contact.quickHelp.description')}</p>
 
                                     <div className="flex flex-col sm:flex-row gap-4">
-                                        <a href="tel:+919876543210" className="flex-1">
+                                        <a href="tel:+918840644818" className="flex-1">
                                             <motion.div
                                                 whileHover={{ scale: 1.02 }}
                                                 className="flex items-center gap-3 px-6 py-4 rounded-xl bg-[#B9F261] text-[#0B0B0B]"
@@ -396,7 +328,7 @@ const Contact = () => {
                                                 <Phone className="w-5 h-5" />
                                                 <div>
                                                     <p className="text-xs opacity-70">{t('contact.quickHelp.callNow')}</p>
-                                                    <p className="font-bold">+91 98765 43210</p>
+                                                    <p className="font-bold">+91 88406 44818</p>
                                                 </div>
                                             </motion.div>
                                         </a>
@@ -462,7 +394,7 @@ const Contact = () => {
                 />
 
                 <div className="container mx-auto px-6 relative z-10">
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 mb-16">
                         {/* Logo & Description */}
                         <div className="lg:col-span-1">
                             <div className="flex items-center gap-2 mb-4">
@@ -484,17 +416,14 @@ const Contact = () => {
                             </p>
                             {/* Social Icons */}
                             <div className="flex gap-3">
-                                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-[#B9F261] hover:text-[#0B0B0B] hover:border-[#B9F261] transition-all">
-                                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
-                                </a>
-                                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-[#B9F261] hover:text-[#0B0B0B] hover:border-[#B9F261] transition-all">
-                                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg>
-                                </a>
-                                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-[#B9F261] hover:text-[#0B0B0B] hover:border-[#B9F261] transition-all">
-                                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" /></svg>
-                                </a>
-                                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-[#B9F261] hover:text-[#0B0B0B] hover:border-[#B9F261] transition-all">
+                                <a href="https://www.linkedin.com/in/vaishnavi1325/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-[#B9F261] hover:text-[#0B0B0B] hover:border-[#B9F261] transition-all">
                                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
+                                </a>
+                                <a href="mailto:vaishnavishukla9578b@gmail.com" className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-[#B9F261] hover:text-[#0B0B0B] hover:border-[#B9F261] transition-all">
+                                    <Mail className="w-4 h-4" />
+                                </a>
+                                <a href="tel:+918840644818" className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-[#B9F261] hover:text-[#0B0B0B] hover:border-[#B9F261] transition-all">
+                                    <Phone className="w-4 h-4" />
                                 </a>
                             </div>
                         </div>
@@ -523,22 +452,6 @@ const Contact = () => {
                             </ul>
                         </div>
 
-                        {/* Newsletter */}
-                        <div>
-                            <h4 className="font-display font-bold text-white mb-6">{t('landing.footer.stayUpdated')}</h4>
-                            <p className="text-white/60 text-sm mb-4">{t('landing.footer.newsletterDesc')}</p>
-                            <div className="space-y-3">
-                                <input
-                                    type="email"
-                                    placeholder={t('landing.footer.emailPlaceholder')}
-                                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/20 text-white placeholder:text-white/40 focus:outline-none focus:border-[#B9F261] focus:bg-white/10 transition-all"
-                                />
-                                <Button className="w-full rounded-xl py-3 bg-[#B9F261] text-[#0B0B0B] hover:bg-[#a8e050] font-semibold">
-                                    {t('landing.footer.subscribeNow')}
-                                </Button>
-                            </div>
-                            <p className="text-white/40 text-xs mt-3">{t('landing.footer.privacyNote')}</p>
-                        </div>
                     </div>
 
                     {/* Bottom Bar */}

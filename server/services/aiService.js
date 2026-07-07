@@ -338,4 +338,4 @@ module.exports = {
     parseAIResponse,
     clearCache,
     getCacheStats
-};
+}
