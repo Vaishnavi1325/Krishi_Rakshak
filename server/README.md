@@ -13,7 +13,6 @@
 REST API powering the **KrishiRakshak** platform with AI services, authentication, weather integration, crop management, and community features.
 
 </div>
-
 ---
 
 # 📖 Overview
