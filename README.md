@@ -6,7 +6,7 @@
 
 ### AI-Powered Smart Pest Management Platform for Indian Farmers
 
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Visit_App-brightgreen?style=for-the-badge)](https://krishi-rakshak-one.vercel.app)
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Visit_App-brightgreen?style=for-the-badge)](https://krishi-rakshakk-one.vercel.app)
 [![API Status](https://img.shields.io/badge/🔗_Backend_API-Live-blue?style=for-the-badge)](https://krishi-rakshak-wxuj.onrender.com)
 
 ---
@@ -34,7 +34,7 @@
 
 | Service | URL | Platform |
 |---------|-----|----------|
-| **🖥 Frontend App** | [https://krishi-rakshak-one.vercel.app](https://krishi-rakshak-one.vercel.app) | Vercel |
+| **🖥 Frontend App** | [https://krishi-rakshakk-one.vercel.app](https://krishi-rakshakk-one.vercel.app) | Vercel |
 | **⚙️ Backend API** | [https://krishi-rakshak-wxuj.onrender.com](https://krishi-rakshak-wxuj.onrender.com) | Render |
 
 > [!NOTE]
@@ -496,7 +496,7 @@ Authorization: Bearer <JWT_TOKEN>
 
 | Service | URL | Platform |
 |---------|-----|----------|
-| **Frontend** | [https://krishi-rakshak-one.vercel.app](https://krishi-rakshak-one.vercel.app) | Vercel |
+| **Frontend** | [https://krishi-rakshakk-one.vercel.app](https://krishi-rakshakk-one.vercel.app) | Vercel |
 | **Backend API** | [https://krishi-rakshak-wxuj.onrender.com](https://krishi-rakshak-wxuj.onrender.com) | Render |
 
 ---
@@ -540,7 +540,7 @@ VITE_API_URL=https://krishi-rakshak-wxuj.onrender.com
 ```env
 PORT=5000
 NODE_ENV=production
-CLIENT_URL=https://krishi-rakshak-one.vercel.app
+CLIENT_URL=https://krishi-rakshakk-one.vercel.app
 MONGODB_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
 JWT_EXPIRE=30d
