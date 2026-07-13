@@ -1,13 +1,13 @@
 <div align="center">
 
-<img src="public/favicon.svg" alt="KrishiRakshak Logo" width="80" />
+<img src="frontend/public/favicon.svg" alt="KrishiRakshak Logo" width="80" />
 
 # 🌱 KrishiRakshak
 
 ### AI-Powered Smart Pest Management Platform for Indian Farmers
 
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Visit_App-brightgreen?style=for-the-badge)](https://krishi-rakshak.vercel.app)
-[![API Status](https://img.shields.io/badge/🔗_Backend_API-Live-blue?style=for-the-badge)](https://krishi-rakshak-api.onrender.com)
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Visit_App-brightgreen?style=for-the-badge)](https://krishi-rakshak-one.vercel.app)
+[![API Status](https://img.shields.io/badge/🔗_Backend_API-Live-blue?style=for-the-badge)](https://krishi-rakshak-wxuj.onrender.com)
 
 ---
 
@@ -34,8 +34,8 @@
 
 | Service | URL | Platform |
 |---------|-----|----------|
-| **🖥 Frontend App** | [https://krishi-rakshak.vercel.app](https://krishi-rakshak.vercel.app) | Vercel |
-| **⚙️ Backend API** | [https://krishi-rakshak-api.onrender.com](https://krishi-rakshak-api.onrender.com) | Render |
+| **🖥 Frontend App** | [https://krishi-rakshak-one.vercel.app](https://krishi-rakshak-one.vercel.app) | Vercel |
+| **⚙️ Backend API** | [https://krishi-rakshak-wxuj.onrender.com](https://krishi-rakshak-wxuj.onrender.com) | Render |
 
 > [!NOTE]
 > The backend is hosted on Render's free tier. The first request after a period of inactivity may take **30–50 seconds** to spin up (cold start). Subsequent requests will be fast.
@@ -422,7 +422,7 @@ npm run dev
 
 ## 📡 API Reference
 
-Base URL: `https://krishi-rakshak-api.onrender.com` (production) or `http://localhost:5000` (local)
+Base URL: `https://krishi-rakshak-wxuj.onrender.com` (production) or `http://localhost:5000` (local)
 
 ### 🔑 Authentication
 
@@ -496,8 +496,8 @@ Authorization: Bearer <JWT_TOKEN>
 
 | Service | URL | Platform |
 |---------|-----|----------|
-| **Frontend** | [https://krishi-rakshak.vercel.app](https://krishi-rakshak.vercel.app) | Vercel |
-| **Backend API** | [https://krishi-rakshak-api.onrender.com](https://krishi-rakshak-api.onrender.com) | Render |
+| **Frontend** | [https://krishi-rakshak-one.vercel.app](https://krishi-rakshak-one.vercel.app) | Vercel |
+| **Backend API** | [https://krishi-rakshak-wxuj.onrender.com](https://krishi-rakshak-wxuj.onrender.com) | Render |
 
 ---
 
@@ -517,7 +517,7 @@ Authorization: Bearer <JWT_TOKEN>
 4. Add the environment variable:
 
 ```env
-VITE_API_URL=https://krishi-rakshak-api.onrender.com
+VITE_API_URL=https://krishi-rakshak-wxuj.onrender.com
 ```
 
 ---
@@ -540,7 +540,7 @@ VITE_API_URL=https://krishi-rakshak-api.onrender.com
 ```env
 PORT=5000
 NODE_ENV=production
-CLIENT_URL=https://krishi-rakshak.vercel.app
+CLIENT_URL=https://krishi-rakshak-one.vercel.app
 MONGODB_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
 JWT_EXPIRE=30d
