@@ -67,6 +67,17 @@ app.use(cors({
 // Body parser middleware
 app.use(express.json({ limit: '10mb' })); // For base64 images
 app.use(express.urlencoded({ extended: true }));
+app.get('/', (req, res) => {
+    res.status(200).json({
+        success: true,
+        message: 'Krishi Rakshak API is running',
+        health: '/health'
+    });
+});
+
+app.head('/', (req, res) => {
+    res.sendStatus(200);
+});
 
 // Health check
 app.get('/health', (req, res) => {
