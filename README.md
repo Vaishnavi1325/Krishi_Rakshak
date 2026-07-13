@@ -155,13 +155,13 @@ English & Hindi (हिंदी) — built with `i18next`
 
 | Page | Preview |
 |------|---------|
-| **Home** | ![Home Screen](public/screenshots/home.png) |
-| **Dashboard** | ![Dashboard](public/screenshots/dashboard.png) |
-| **AI Chat Assistant** | ![AI Chat](public/screenshots/chat.png) |
-| **Pest Identification** | ![Pest ID](public/screenshots/pest-identification.png) |
-| **Weather Dashboard** | ![Weather](public/screenshots/weather.png) |
-| **Community** | ![Community](public/screenshots/community.png) |
-| **Spray Log** | ![Spray Log](public/screenshots/spraylog.png) |
+| **Home** | ![Home Screen](frontend/public/screenshots/home.png) |
+| **Dashboard** | ![Dashboard](frontend/public/screenshots/dashboard.png) |
+| **AI Chat Assistant** | ![AI Chat](frontend/public/screenshots/chat.png) |
+| **Pest Identification** | ![Pest ID](frontend/public/screenshots/pest-identification.png) |
+| **Weather Dashboard** | ![Weather](frontend/public/screenshots/weather.png) |
+| **Community** | ![Community](frontend/public/screenshots/community.png) |
+| **Spray Log** | ![Spray Log](frontend/public/screenshots/spraylog.png) |
 
 </details>
 
@@ -258,37 +258,42 @@ English & Hindi (हिंदी) — built with `i18next`
 ```
 KrishiRakshak/
 │
-├── public/                    # Static assets
-│   ├── screenshots/           # App screenshots
-│   ├── favicon.svg            # App icon
-│   └── robots.txt             # SEO configuration
+├── frontend/                  # Frontend application
+│   ├── public/                # Static assets
+│   │   ├── screenshots/       # App screenshots
+│   │   ├── favicon.svg        # App icon
+│   │   └── robots.txt         # SEO configuration
+│   ├── src/                   # Frontend source code
+│   │   ├── assets/            # Images & static resources
+│   │   ├── components/        # Reusable React components
+│   │   ├── config/            # App configuration
+│   │   ├── contexts/          # React context providers
+│   │   ├── hooks/             # Custom React hooks
+│   │   ├── lib/               # Utility libraries
+│   │   ├── pages/             # Route page components
+│   │   │   ├── Index.tsx      #   Landing / Home page
+│   │   │   ├── Dashboard.tsx  #   User dashboard
+│   │   │   ├── Chat.tsx       #   AI chat assistant
+│   │   │   ├── Identify.tsx   #   Pest identification
+│   │   │   ├── Alerts.tsx     #   Weather & AI alerts
+│   │   │   ├── Advisory.tsx   #   Farming advisories
+│   │   │   ├── Community.tsx  #   Community forum
+│   │   │   ├── SprayLog.tsx   #   Spray log manager
+│   │   │   ├── Profile.tsx    #   User profile
+│   │   │   ├── Contact.tsx    #   Contact page
+│   │   │   ├── Login.tsx      #   Authentication
+│   │   │   └── Register.tsx   #   Registration
+│   │   ├── types/             # TypeScript type definitions
+│   │   ├── App.tsx            # Root app component
+│   │   ├── App.css            # Global styles
+│   │   └── main.tsx           # Entry point
+│   ├── index.html             # HTML entry point
+│   ├── vite.config.ts         # Vite configuration
+│   ├── tailwind.config.ts     # Tailwind CSS configuration
+│   ├── tsconfig.json          # TypeScript configuration
+│   └── package.json           # Frontend dependencies
 │
-├── src/                       # Frontend source code
-│   ├── assets/                # Images & static resources
-│   ├── components/            # Reusable React components
-│   ├── config/                # App configuration
-│   ├── contexts/              # React context providers
-│   ├── hooks/                 # Custom React hooks
-│   ├── lib/                   # Utility libraries
-│   ├── pages/                 # Route page components
-│   │   ├── Index.tsx          #   Landing / Home page
-│   │   ├── Dashboard.tsx      #   User dashboard
-│   │   ├── Chat.tsx           #   AI chat assistant
-│   │   ├── Identify.tsx       #   Pest identification
-│   │   ├── Alerts.tsx         #   Weather & AI alerts
-│   │   ├── Advisory.tsx       #   Farming advisories
-│   │   ├── Community.tsx      #   Community forum
-│   │   ├── SprayLog.tsx       #   Spray log manager
-│   │   ├── Profile.tsx        #   User profile
-│   │   ├── Contact.tsx        #   Contact page
-│   │   ├── Login.tsx          #   Authentication
-│   │   └── Register.tsx       #   Registration
-│   ├── types/                 # TypeScript type definitions
-│   ├── App.tsx                # Root app component
-│   ├── App.css                # Global styles
-│   └── main.tsx               # Entry point
-│
-├── server/                    # Backend source code
+├── server/                    # Backend application
 │   ├── config/                # DB & service configuration
 │   ├── controllers/           # Route handlers
 │   │   ├── aiController.js    #   AI chat & image analysis
@@ -312,13 +317,9 @@ KrishiRakshak/
 │   ├── index.js               # Server entry point
 │   └── package.json           # Backend dependencies
 │
-├── index.html                 # HTML entry point
-├── vite.config.ts             # Vite configuration
-├── tailwind.config.ts         # Tailwind CSS configuration
-├── tsconfig.json              # TypeScript configuration
-├── package.json               # Frontend dependencies
 ├── LICENSE                    # MIT License
-└── README.md                  # This file
+├── README.md                  # This file
+└── TROUBLESHOOTING.md         # Troubleshooting guide
 ```
 
 ---
@@ -347,7 +348,9 @@ cd Krishi_Rakshak
 
 ```bash
 # Frontend dependencies
+cd frontend
 npm install
+cd ..
 
 # Backend dependencies
 cd server
@@ -357,7 +360,7 @@ cd ..
 
 ### 3️⃣ Configure Environment Variables
 
-**Frontend** — create `.env` in the project root:
+**Frontend** — create `frontend/.env`:
 
 ```env
 VITE_API_URL=http://localhost:5000
@@ -408,6 +411,7 @@ cd server
 npm run dev
 
 # Terminal 2 — Frontend (http://localhost:5173)
+cd frontend
 npm run dev
 ```
 
@@ -505,6 +509,7 @@ Authorization: Bearer <JWT_TOKEN>
 
 | Setting | Value |
 |---------|-------|
+| **Root Directory** | `frontend` |
 | **Framework Preset** | Vite |
 | **Build Command** | `npm run build` |
 | **Output Directory** | `dist` |
@@ -607,7 +612,7 @@ Contributions are welcome! Please follow these steps:
 
 ```bash
 # Run the frontend dev server
-npm run dev
+cd frontend && npm run dev
 
 # Run the backend dev server
 cd server && npm run dev
