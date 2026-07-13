@@ -195,6 +195,11 @@ const Chat = () => {
       setCurrentConversationId(id);
       setSearchParams({ id });
 
+      const conversationLanguage = data.conversation?.language || 'en';
+      if (i18n.language !== conversationLanguage) {
+        i18n.changeLanguage(conversationLanguage);
+      }
+
       const formattedMessages: Message[] = (data.messages || []).map((msg: any) => ({
         id: msg.id || msg._id,
         role: msg.role,

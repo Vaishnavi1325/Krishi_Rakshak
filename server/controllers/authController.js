@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+const notification = require('../services/notificationService');
 
 // Generate JWT Token
 const generateToken = (userId) => {
@@ -51,6 +52,11 @@ exports.register = async (req, res) => {
 
         // Generate token
         const token = generateToken(user._id);
+
+        // Send welcome email (don't block response)
+        notification.sendRegistrationEmail(user.email, user.name).catch(err => {
+            console.error('Failed to send registration email:', err.message);
+        });
 
         // Return user data (password excluded by User model toJSON)
         const userResponse = {
@@ -109,6 +115,11 @@ exports.login = async (req, res) => {
 
         // Generate token
         const token = generateToken(user._id);
+
+        // Send login notification (non-blocking)
+        notification.sendLoginNotification(user.email, user.name).catch(err => {
+            console.error('Failed to send login notification:', err.message);
+        });
 
         // Return user data
         const userResponse = {

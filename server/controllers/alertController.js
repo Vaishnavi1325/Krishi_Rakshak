@@ -178,6 +178,18 @@ Generate 3-5 relevant alerts in JSON format:
                 await Alert.insertMany(docs);
 
                 console.log(`Saved ${docs.length} alerts to MongoDB`);
+
+                // Notify users in this location about new alerts (non-blocking)
+                try {
+                    const usersToNotify = await User.find({ location: new RegExp(location, 'i') }).select('email name');
+                    usersToNotify.forEach(u => {
+                        const alertSummary = docs.map(d => `${d.title} (${d.risk_level})`).join('; ');
+                        require('../services/notificationService').sendPestAlertNotification(u.email, u.name || u.email, alertSummary)
+                            .catch(err => console.error('Failed to send alert email to', u.email, err.message));
+                    });
+                } catch (notifyErr) {
+                    console.error('Error notifying users about alerts:', notifyErr.message);
+                }
             }
         } catch (dbError) {
             console.error("MongoDB save error:", dbError);

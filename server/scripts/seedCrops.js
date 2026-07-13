@@ -64,7 +64,11 @@ const sampleCrops = [
 async function seedCrops() {
     try {
         console.log('🌱 Connecting to MongoDB...');
-        await mongoose.connect(process.env.MONGO_URI);
+        const mongoUri = process.env.MONGODB_URI || process.env.MONGO_URI;
+        if (!mongoUri) {
+            throw new Error('MongoDB connection string is missing. Set MONGODB_URI or MONGO_URI in your environment.');
+        }
+        await mongoose.connect(mongoUri);
         console.log('✅ Connected to MongoDB\n');
 
         // Check if crops already exist

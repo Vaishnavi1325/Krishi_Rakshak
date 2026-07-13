@@ -100,7 +100,10 @@ const SprayLog = () => {
   };
 
   const fetchLogs = async () => {
-    if (!user) return;
+    if (!user) {
+      setIsLoading(false);
+      return;
+    }
 
     const token = getAuthToken();
     if (!token) {
@@ -130,15 +133,26 @@ const SprayLog = () => {
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/crops`);
       const data = await response.json();
-      setCrops(data || []);
+      setCrops(Array.isArray(data) ? data.map((crop: any) => ({ ...crop, id: crop.id || crop._id })) : []);
     } catch (error) {
       console.error('Error fetching crops:', error);
     }
   };
 
-  const getCropName = (cropId: string | null) => {
+  const normalizeCropId = (cropId: string | Crop | null | undefined): string | null => {
+    if (!cropId) return null;
+    if (typeof cropId === 'object') {
+      return cropId.id || (cropId as any)._id || null;
+    }
+    return cropId;
+  };
+
+  const getCropName = (cropId: string | Crop | null) => {
     if (!cropId) return "Unknown";
-    return crops.find(c => c.id === cropId)?.name || "Unknown";
+    if (typeof cropId === 'object') {
+      return cropId.name || "Unknown";
+    }
+    return crops.find(c => c.id === cropId || (c as any)._id === cropId)?.name || "Unknown";
   };
 
   const checkForWarnings = (currentLogId: string, pesticide: string, date: string): string | null => {
@@ -245,7 +259,7 @@ const SprayLog = () => {
   });
 
   const uniquePesticides = [...new Set(logs.map(l => l.pesticide_name))];
-  const uniqueCrops = [...new Set(logs.map(l => l.crop_id).filter(Boolean))];
+  const uniqueCrops = [...new Set(logs.map(l => normalizeCropId(l.crop_id)).filter(Boolean))];
 
   if (isLoading) {
     return (
@@ -258,6 +272,28 @@ const SprayLog = () => {
           <div className="w-16 h-16 rounded-full border-4 border-[#B9F261] border-t-transparent animate-spin mx-auto mb-4" />
           <p className="text-gray-500">Loading spray logs...</p>
         </motion.div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return (
+      <div className="min-h-screen bg-[#FAF4EA] flex items-center justify-center px-6 py-12">
+        <Card className="w-full max-w-xl border-gray-200 shadow-xl">
+          <CardContent className="p-10 text-center">
+            <Badge className="bg-yellow-100 text-yellow-700 mb-4">Login Required</Badge>
+            <h2 className="text-2xl font-bold text-[#0B0B0B] mb-2">You need to be logged in</h2>
+            <p className="text-gray-500 mb-6">Create an account or sign in to view and manage your spray logs.</p>
+            <div className="flex justify-center gap-3">
+              <Link to="/login">
+                <Button className="bg-[#B9F261] text-[#0B0B0B] hover:bg-[#a8e050] rounded-full px-6">Login</Button>
+              </Link>
+              <Link to="/register">
+                <Button variant="outline" className="rounded-full px-6">Register</Button>
+              </Link>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     );
   }

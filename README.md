@@ -562,53 +562,37 @@ JWT is generated during login and must be sent with authenticated requests.
 
 # 📸 Screenshots
 
-You can add screenshots here after deployment.
+The app screenshots are available in `public/screenshots/`.
 
 ## Dashboard
 
-```
-screenshots/dashboard.png
-```
+![Dashboard](public/screenshots/dashboard.png)
 
----
+## Home Screen
+
+![Home Screen](public/screenshots/home.png)
 
 ## AI Chat Assistant
 
-```
-screenshots/chat.png
-```
-
----
+![AI Chat Assistant](public/screenshots/chat.png)
 
 ## AI Pest Identification
 
-```
-screenshots/pest-identification.png
-```
-
----
+![Pest Identification](public/screenshots/pest-identification.png)
 
 ## Weather Dashboard
 
-```
-screenshots/weather.png
-```
-
----
+![Weather Dashboard](public/screenshots/weather.png)
 
 ## Community
 
-```
-screenshots/community.png
-```
-
----
+![Community](public/screenshots/community.png)
 
 ## Spray Log
 
-```
-screenshots/spraylog.png
-```
+![Spray Log](public/screenshots/spraylog.png)
+
+> Tip: Replace these images with updated screenshots if you refresh the UI.
 
 ---
 
@@ -616,71 +600,72 @@ screenshots/spraylog.png
 
 ## Frontend
 
-Deploy the React application using:
+Deploy the React application to any static frontend platform.
 
 - Vercel
 - Netlify
+- Cloudflare Pages
 
-Build command
+Build command:
 
 ```bash
 npm run build
 ```
 
-Output directory
+Output directory:
 
-```
+```bash
 dist
 ```
 
----
+Frontend environment variable:
+
+```env
+VITE_API_URL=https://your-backend-domain.com
+```
 
 ## Backend
 
-Deploy the Express server using:
+Deploy the Express API server to a Node.js host.
 
 - Render
 - Railway
 - Fly.io
+- Heroku
 
-Build command
+Install dependencies:
 
 ```bash
+cd server
 npm install
 ```
 
-Start command
+Development:
+
+```bash
+npm run dev
+```
+
+Production:
 
 ```bash
 npm start
 ```
 
----
-
-## Required Environment Variables
+Backend environment variables:
 
 ```env
 PORT=5000
-
 NODE_ENV=production
-
-CLIENT_URL=https://your-frontend-domain.vercel.app
-
+CLIENT_URL=https://your-frontend-domain.com
 MONGODB_URI=your_mongodb_connection_string
-
 JWT_SECRET=your_jwt_secret
-
 JWT_EXPIRE=30d
-
 GROQ_API_KEY=your_groq_api_key
-
 OPENWEATHERMAP_API_KEY=your_openweathermap_api_key
-
 CLOUDINARY_CLOUD_NAME=your_cloud_name
-
-CLOUDINARY_API_KEY=your_api_key
-
-CLOUDINARY_API_SECRET=your_api_secret
+CLOUDINARY_API_KEY=your_cloudinary_api_key
+CLOUDINARY_API_SECRET=your_cloudinary_api_secret
 ```
 
 ---

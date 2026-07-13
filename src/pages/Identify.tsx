@@ -97,6 +97,23 @@ const symptomOptions = [
   { id: "stunted", label: "Stunted growth", category: "Growth issues", icon: "📉" },
 ];
 
+const symptomMatchPatterns: Record<string, string[]> = {
+  yellowing: ['yellow', 'yellowing', 'chlorosis'],
+  curling: ['curl', 'curled', 'distort', 'twist', 'deformed'],
+  holes: ['hole', 'holes', 'chew', 'eaten', 'borer', 'torn', 'puncture'],
+  wilting: ['wilt', 'wilting', 'droop', 'drooping', 'floppy', 'wither'],
+  sticky: ['sticky', 'honeydew', 'sooty', 'mold', 'residue'],
+  insects: ['insect', 'aphid', 'whitefly', 'mite', 'beetle', 'worm', 'caterpillar', 'hopper', 'bug', 'fly'],
+  webbing: ['web', 'webbing', 'spider'],
+  stunted: ['stunt', 'stunted', 'dwarf', 'slow growth', 'reduced vigor'],
+};
+
+const matchesSymptomPattern = (pestSymptom: string, symptomId: string) => {
+  const patterns = symptomMatchPatterns[symptomId] || [];
+  const normalizedSymptom = pestSymptom.toLowerCase();
+  return patterns.some((pattern) => normalizedSymptom.includes(pattern));
+};
+
 const severityOptions = [
   { level: "Mild", color: "from-emerald-400 to-green-500", percentage: "<25% affected" },
   { level: "Moderate", color: "from-amber-400 to-orange-500", percentage: "25-50% affected" },
@@ -282,11 +299,7 @@ const Identify = () => {
       (pest) =>
         (!selectedCrop || pest.crop === selectedCrop) &&
         selectedSymptoms.some((s) =>
-          pest.symptoms.some((ps) =>
-            ps.toLowerCase().includes(
-              symptomOptions.find((so) => so.id === s)?.label.toLowerCase() || ""
-            )
-          )
+          pest.symptoms.some((ps) => matchesSymptomPattern(ps, s))
         )
     );
   };

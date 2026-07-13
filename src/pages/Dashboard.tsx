@@ -342,7 +342,11 @@ const Dashboard = () => {
       // Fetch all crops
       const cropsResponse = await fetch(`${API_URL}/api/crops`);
       const cropsData = await cropsResponse.json();
-      if (cropsData) setCrops(cropsData);
+      if (Array.isArray(cropsData)) {
+        setCrops(cropsData.map((crop: any) => ({ ...crop, id: crop.id || crop._id })));
+      } else {
+        setCrops([]);
+      }
 
       // Fetch user's crops
       const token = getAuthToken();
@@ -360,15 +364,15 @@ const Dashboard = () => {
             const enrichedUserCrops = userCropsData.map((uc: any) => {
               let cropData;
               if (typeof uc.crop_id === 'object' && uc.crop_id) {
-                cropData = uc.crop_id;
+                cropData = { ...uc.crop_id, id: uc.crop_id.id || uc.crop_id._id };
               } else {
-                cropData = cropsData.find((c: Crop) => c.id === uc.crop_id);
+                cropData = cropsData.find((c: any) => c.id === uc.crop_id || c._id === uc.crop_id);
               }
 
               return {
                 ...uc,
                 crop: cropData,
-                crop_id: typeof uc.crop_id === 'object' ? uc.crop_id.id : uc.crop_id
+                crop_id: typeof uc.crop_id === 'object' ? uc.crop_id.id || uc.crop_id._id : uc.crop_id
               };
             });
             setUserCrops(enrichedUserCrops);
@@ -575,7 +579,18 @@ const Dashboard = () => {
     }
   ];
 
-  const selectedCrop = crops.find(c => c.id === selectedCropId);
+  const selectedCrop = crops.find(c => c.id === selectedCropId || (c as any)._id === selectedCropId);
+
+  useEffect(() => {
+    if (!selectedCropId) {
+      setSelectedStage('seedling');
+      return;
+    }
+
+    if (selectedCrop?.stages && selectedCrop.stages.length > 0 && !selectedCrop.stages.includes(selectedStage)) {
+      setSelectedStage(selectedCrop.stages[0]);
+    }
+  }, [selectedCropId, selectedCrop]);
 
   return (
     <div className="min-h-screen bg-[#FAF4EA]">
